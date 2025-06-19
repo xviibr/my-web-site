@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xviibr</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">My Portfolio</div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="skill.html">Skills</a>
+            <a href="https://linktr.ee/br0510" target="_blank">About</a>
+        </div>
+        <div class="switch" onclick="toggleSwitch(this)">
+            <div class="icon sun">☀️</div>
+            <div class="icon moon">🌙</div>
+            <div class="toggle"></div>
+        </div>
+    </div>
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Hi There, My name Maewpow</h1>
+            <a href="https://linktr.ee/br0510" target="_blank">
+                <button>About Me</button>
+            </a>
+            <div class="social-icons">
+                <a href="https://discord.gg/qexAQ9uSs5" target="_blank">🌐</a>
+                <a href="https://www.instagram.com/skbr0510/" target="_blank">📸</a>
+                <a href="https://steamcommunity.com/id/nopeeth/" target="_blank">🎮</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://preview.redd.it/defending-gege-premature-death-akutami-v0-tr769g1acb4c1.jpeg?width=640&crop=smart&auto=webp&s=df9ed130f44da709e162daf60e4f5f86c49dbfa9" alt="Profile Picture">
+        </div>
+    </div>
+
+    <script>
+        // ฟังก์ชันสำหรับเปลี่ยนธีม
+        function toggleSwitch(element) {
+            element.classList.toggle('active');
+            document.body.classList.toggle('dark-mode');
+
+            // บันทึกสถานะธีมใน localStorage
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        }
+
+        // ตรวจสอบสถานะธีมจาก localStorage เมื่อโหลดหน้า
+        window.onload = function () {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.switch').classList.add('active');
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Skills</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: rgb(211, 211, 211);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #007bff;
+        }
+
+        .skills-container {
+            margin-top: 100px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .skills-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .skill {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill:hover {
+            transform: scale(1.1);
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">My Portfolio</div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="skill.html">Skills</a>
+            <a href="https://linktr.ee/br0510" target="_blank">About</a>
+        </div>
+        <div class="switch" onclick="toggleSwitch(this)">
+            <div class="icon sun">☀️</div>
+            <div class="icon moon">🌙</div>
+            <div class="toggle"></div>
+        </div>
+    </div>
+
+    <div class="skills-container">
+        <h1>My Skills</h1>
+        <div class="skills-list">
+            <div class="skill">Web Development</div>
+            <div class="skill">Graphic Design</div>
+            <div class="skill">Problem Solving</div>
+            <div class="skill">Team Collaboration</div>
+            <div class="skill">UI/UX Design</div>
+        </div>
+    </div>
+
+    <script>
+        // ฟังก์ชันสำหรับเปลี่ยนธีม
+        function toggleSwitch(element) {
+            element.classList.toggle('active');
+            document.body.classList.toggle('dark-mode');
+
+            // บันทึกสถานะธีมใน localStorage
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        }
+
+        // ตรวจสอบสถานะธีมจาก localStorage เมื่อโหลดหน้า
+        window.onload = function () {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.switch').classList.add('active');
+            }
+        };
+    </script>
+</body>
+</html>
